@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Multi Camera View (1 source)</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .camera-card {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Multi Camera View (Same webcam)</h1>
+  <div class="grid">
+    {% for i in range(1, 9) %}
+    <div class="camera-card">
+      <h2>Camera {{ i }}</h2>
+      <img src="{{ url_for('video') }}" width="300" height="200">
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>
