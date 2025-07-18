@@ -1,12 +1,11 @@
 import sys
 import os
 
-# Absolute path add kar rahe hain so that app_utils ko correctly import kare
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 from flask import Flask, render_template, Response
 import cv2
-from app_utils.detector import Detector  # 👈 Fixed import line (NO relative import)
+from app_utils.detector import Detector  
 
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)
@@ -34,3 +33,6 @@ def video():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+# next 
